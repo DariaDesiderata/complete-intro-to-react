@@ -1,4 +1,6 @@
 const path = require('path');
+
+module.exports = {
 const webpack = require('webpack');
 
 const config = {
@@ -25,7 +27,7 @@ const config = {
   stats: {
     colors: true,
     reasons: true,
-    chunks: false
+    chunks: true
   },
   plugins: [new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin()],
   module: {
@@ -35,11 +37,6 @@ const config = {
         test: /\.jsx?$/,
         loader: 'eslint-loader',
         exclude: /node_modules/
-      },
-      {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        include: [path.resolve('js'), path.resolve('node_modules/preact-compat/src')]
       }
     ]
   }
